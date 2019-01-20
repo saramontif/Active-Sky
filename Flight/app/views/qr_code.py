@@ -5,7 +5,7 @@ qr = qrcode.QRCode(
     box_size=10,
     border=4,
 )
-qr.add_data(u"Active Flight",)
+qr.add_data(u"Active views",)
 qr.make(fit=True)
 
 img = qr.make_image()
