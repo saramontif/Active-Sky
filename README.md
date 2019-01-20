@@ -2,8 +2,8 @@
 Sharing information about the destination of the flight between passengers.
 
 * Yael Yazdi
-* {Participant 2 Name}
-* {Participant 3 Name}
+* Sara Ben David
+* Sari Vagshal
 
 This will be done by an interactive screen that will display sites recommended by the passengers and the facts about the site reported by the passengers.
 
