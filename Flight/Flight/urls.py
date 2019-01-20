@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from Flight import view
+from . import view
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -8,6 +8,7 @@ urlpatterns = [
     # path('', view.index, name='index'),
     # ex: /polls/5/
     path('<int:question_id>/', view.detail, name='detail'),
+    # path("www.ynet.co.il"),
 ]
 
 
