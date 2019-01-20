@@ -8,7 +8,7 @@ from app.views import *
 
 urlpatterns = [
     path('start/', main_first_window.open_window, name='open_window'),
-    
+
 ]
 
 
