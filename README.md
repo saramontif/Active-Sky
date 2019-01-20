@@ -1,5 +1,5 @@
-# {YOUR PROJECT NAME HERE}
-{ONE LINE PROJECT DESCRIPTION HERE}
+# Active Flight
+Sharing information about the destination of the flight between passengers.
 
 * Yael Yazdi
 * {Participant 2 Name}
