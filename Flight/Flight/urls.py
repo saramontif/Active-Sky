@@ -7,8 +7,8 @@ from . import view
 from app.views import *
 
 urlpatterns = [
-    path('<int:question_id>/', view.detail, name='detail'),
     path('start/', main_first_window.open_window, name='open_window'),
+    
 ]
 
 
