@@ -9,5 +9,6 @@ from . import view
 urlpatterns = [
     path('phone_scan/', phon_scan.scan, name='phon_scan'),
     path('start/', main_first_window.open_window, name='open_window'),
+    
 ]
 
