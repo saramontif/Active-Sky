@@ -5,7 +5,8 @@ Sharing information about the destination of the flight between passengers.
 * {Participant 2 Name}
 * {Participant 3 Name}
 
-{OPTIONAL: MORE PROJECT INFO}
+This will be done by an interactive screen that will display sites recommended by the passengers and the facts about the site reported by the passengers.
+Optional: Display the recommender's data next to his comment so that they can get feedback from him on "live"
 
 ## Screenshots
 
