@@ -13,6 +13,7 @@
 # print(img)
 # img.save("image.jpg")
 from django.http import HttpResponse
+from django.http import HttpResponse
 
 
 def detail(request, question_id):
