@@ -1,4 +1,4 @@
-# {YOUR PROJECT NAME HERE}
+# Active Flight
 Sharing information about the destination of the flight between passengers.
 
 * Yael Yazdi
