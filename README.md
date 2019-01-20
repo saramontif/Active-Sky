@@ -1,7 +1,7 @@
 # {YOUR PROJECT NAME HERE}
 {ONE LINE PROJECT DESCRIPTION HERE}
 
-* {Participant 1 Name}
+* Yael Yazdi
 * {Participant 2 Name}
 * {Participant 3 Name}
 
