@@ -1,4 +1,6 @@
 from django import forms
+
+
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import FormView
@@ -8,8 +10,9 @@ from core.views.main_first_window import event
 
 class ScanForm(forms.Form):
     destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
-    text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
-    is_a_tourist_site = forms.BooleanField()
+    is_a_tourist_site = forms.BooleanField(required=False)
+    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}), max_length=100)
+    # seat = get_seat_from_url()
 
 
 
