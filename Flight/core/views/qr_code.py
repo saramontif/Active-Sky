@@ -1,6 +1,6 @@
 import pyqrcode
-
-url = pyqrcode.create('http://uca.edu/8787/?x=123')
+from django.conf import settings
+url = pyqrcode.create('http://6fd221c3.ngrok.io/phone_scan')
 url.png('url.png')
 
 

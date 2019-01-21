@@ -17,7 +17,7 @@ def get_data_from_user(d):
     recommendations.append(d['text'])
 
 
-class active_view(TemplateView):
+class Active_view(TemplateView):
     template_name = 'active_main.html'
 
     def get_url(self):
