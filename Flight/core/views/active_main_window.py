@@ -11,7 +11,7 @@ def get_data_from_user(d):
         destination = d['destination']
         recommendations.clear()
 
-    recommendations.append("SEAT __:    " + d['text'])
+    recommendations.append(f"SEAT {d['seat']}:    " + d['text'])
 
 
 class Active_view(TemplateView):
