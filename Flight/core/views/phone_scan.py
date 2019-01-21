@@ -1,5 +1,4 @@
 from django import forms
-
 from django.views.generic import TemplateView, FormView
 
 from core.views.active_main_window import get_data_from_user
