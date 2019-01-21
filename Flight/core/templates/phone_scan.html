@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <html>
 <head>
 
@@ -26,20 +27,19 @@
 </br>
 <div class="container">
     <div class="row vertical-offset-200">
-    	<div class="col-md-5 col-md-offset-3">
+    	<div class="col-md-6 col-md-offset-3">
     		 <div class="panel panel-default">
                 <div class="panel-body">
                     <h1 style="font-family:'Sofia';font-size: 50px;">Come and share with us 😉! </h1></br>
-                    <form>
+                    <form method="POST">
+                        {% csrf_token %}
                       <div class="form-group">
-                        <label style="font-family:'Lobster';font-size: 25px">The destination you want to travel 👉 </label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter text">
+                        <label for="destination" style="font-family:'Lobster';font-size: 25px">The destination you want to travel to 👉 </label>
+                        <input name="destination" id="destination" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter text">
                       </div>
-                    </form>
 
-                    <form accept-charset="UTF-8" action="" method="POST">
-                        <label style="font-family:'Lobster';font-size: 25px" for="exampleInputEmail1">what's your recommendation:❔ </label>
-                        <textarea class="form-control counted" name="message" placeholder="what's your recommendation:" rows="6" style="margin-bottom:10px;"></textarea></br>
+                        <label for="text" style="font-family:'Lobster';font-size: 25px">what's your recommendation: </label>
+                        <textarea name="text" id="text" class="form-control counted" placeholder="what's your recommendation:" rows="6" style="margin-bottom:10px;"></textarea></br>
                         <button class="btn btn-info" type="submit">Share ☝️</button>
                     </form>
 
