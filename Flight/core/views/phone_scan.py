@@ -11,6 +11,9 @@ class ScanForm(forms.Form):
     text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
     is_a_tourist_site = forms.BooleanField()
     text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 27}), max_length=100)
+    is_a_tourist_site = forms.BooleanField(required=False)
+    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}), max_length=100)
+
 
 
 
@@ -29,5 +32,4 @@ class ScanView(FormView):
         d = form.cleaned_data
         d['seat'] = self.kwargs['seat']
         return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
-
 
