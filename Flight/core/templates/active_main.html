@@ -12,13 +12,8 @@
         <form action="/comments/" method="post">
             <iframe width="560" height="315" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br>
-            <label>{{ view.get_seat }}</label>
+            <div>{{ view.get_seat }}</div>
             <div> {{ view.get_recognization }}</div>
-            <input type="submit" value="OK">
-        </form>
-        <form>
-            <textarea>{{userSetting.list | join:"&#10;"}}</textarea>
-
         </form>
 
     </body>

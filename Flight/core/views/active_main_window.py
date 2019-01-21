@@ -2,30 +2,37 @@ from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
 
-data = 0
+destination = ""
+recommendations = []
 def get_data_from_user(d):
-    global data
-    data = d
-    print("=========")
+    global destination
+
+    print("===================")
     print(d)
-    print("=========")
+    print("===================")
+
+    if d['destination']:
+        destination = d['destination']
+
+    recommendations.append(d['text'])
+
 
 class active_view(TemplateView):
     template_name = 'active_main.html'
 
     def get_url(self):
-        place = "Isreali museon"
+        place = destination
         query_string = urllib.parse.urlencode({"search_query": place})
         html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
         search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
         return f"https://www.youtube.com/embed/{search_results[0]}"
 
     def get_topic(self):
-        return "TOPIC..."
+        return destination
 
     def get_seat(self):
         return "SEAT __:    "
 
 
     def get_recognization(self):
-        return data['text']
+        return '\n'.join(recommendations)
