@@ -8,7 +8,7 @@ from core.views.main_first_window import event
 
 class ScanForm(forms.Form):
     destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
-    is_a_tourist_site = forms.BooleanField(attrs={'border-width':4})
+    is_a_tourist_site = forms.BooleanField()
     text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 27}), max_length=100)
 
 
