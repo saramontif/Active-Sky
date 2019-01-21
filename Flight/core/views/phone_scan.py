@@ -1,18 +1,19 @@
 from django import forms
+
+
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.utils import timezone
 from django.views.generic import FormView
 
-from core.views.active_main_window import get_data_from_user
+from core.models import Dest, Facts
 from core.views.main_first_window import event
 
 class ScanForm(forms.Form):
-    destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
-    text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
-    is_a_tourist_site = forms.BooleanField()
-    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 27}), max_length=100)
+    destination = forms.CharField(label='The destination you want to travel 👉\n', required=False, max_length=50)
     is_a_tourist_site = forms.BooleanField(required=False)
-    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}), max_length=100)
+    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 25}), max_length=100)
+    # seat = get_seat_from_url()
 
 
 
@@ -21,11 +22,26 @@ class ScanView(FormView):
     template_name = 'phone_scan.html'
     form_class = ScanForm
 
+    def bool_is_site(self, d):
+        if d['is_a_tourist_site'] != '':
+            return True
+        return False
+
     def form_valid(self, form):
         d = form.cleaned_data
-        d['seat'] = self.kwargs['seat']
+        # dest = ""
+        if d['destination'] == '':
+            dest = Dest.objects.get(name=d['destination'])
+        else:
+            dest = Dest(name=d['destination'], is_site=self.bool_is_site(d['is_a_tourist_site']), date=timezone.now())
+            dest.save()
+
+        if dest.
+
+
+        fact = Facts(dest=dest, content=f"SEAT {self.kwargs['seat']}:    " + d['text'])
+        fact.save()
         event()
-        get_data_from_user(d)
         return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
 
     def form_invalid(self, form):
