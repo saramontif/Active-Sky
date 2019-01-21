@@ -22,4 +22,4 @@ class ScanView(FormView):
         return redirect('phone_scan')
 
     def form_invalid(self, form):
-        assert False, form.error
+        return redirect('phone_scan')
