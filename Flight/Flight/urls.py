@@ -6,7 +6,7 @@ from core.views.main_first_window import home_view
 
 
 urlpatterns = [
-    path('phone_scan/', ScanView.as_view(), name='phone_scan'),
+    path('phone_scan/', ScanView.as_view(), name='scan'),
     path('start/', home_view.as_view(), name='start'),
     path('active/', Active_view.as_view(), name='active_window'),
 ]
