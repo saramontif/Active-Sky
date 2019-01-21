@@ -9,9 +9,9 @@ from core.views.active_main_window import get_data_from_user
 from core.views.main_first_window import event
 
 class ScanForm(forms.Form):
-    destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
+    destination = forms.CharField(label='The destination you want to travel 👉\n', required=False, max_length=50)
     is_a_tourist_site = forms.BooleanField(required=False)
-    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}), max_length=100)
+    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 25}), max_length=100)
     # seat = get_seat_from_url()
 
 
