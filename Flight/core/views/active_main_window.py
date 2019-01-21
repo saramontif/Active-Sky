@@ -31,9 +31,6 @@ class Active_view(TemplateView):
     def get_topic(self):
         return destination
 
-    # def get_seat(self):
-    #     return "SEAT __:    "
-
 
     def get_recognization(self):
         return '\n\n'.join(recommendations) # the \n does'nt work!!!
