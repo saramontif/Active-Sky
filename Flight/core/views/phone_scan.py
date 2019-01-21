@@ -29,18 +29,22 @@ class ScanView(FormView):
 
     def form_valid(self, form):
         d = form.cleaned_data
-        # dest = ""
+
         if d['destination'] == '':
             dest = Dest.objects.get(name=d['destination'])
         else:
             dest = Dest(name=d['destination'], is_site=self.bool_is_site(d['is_a_tourist_site']), date=timezone.now())
             dest.save()
 
-        if dest.
+        # if timezone.now().minute - dest['date'].minute < 5:
+        #     pass #TO DO : delete from database!!!!!!!!
 
+        dest['date'] = timezone.now()
+        dest.save()
 
         fact = Facts(dest=dest, content=f"SEAT {self.kwargs['seat']}:    " + d['text'])
         fact.save()
+
         event()
         return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
 
