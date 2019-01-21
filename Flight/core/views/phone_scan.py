@@ -15,10 +15,7 @@ class ScanView(FormView):
 
     def form_valid(self, form):
         d = form.cleaned_data
-        # return d
         get_data_from_user(d)
 
     def form_invalid(self, form):
-        assert False, form.errors
-
-
+        assert False, form.error
