@@ -1,6 +1,7 @@
 from django.db import models
 
 class Dest(models.Model):
+    date = models.DateField()
     name = models.CharField(max_length=50)
     is_site = models.BooleanField()
 
@@ -15,3 +16,5 @@ class Facts(models.Model):
 
     def __str__(self):
         return self.dest
+
+
