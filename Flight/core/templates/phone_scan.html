@@ -22,32 +22,31 @@
 
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <!-- This is a very simple parallax effect achieved by simple CSS 3 multiple backgrounds, made by http://twitter.com/msurguy -->
-</br>
-</br>
-</br>
-<div class="container">
-    <div class="row vertical-offset-200">
-    	<div class="col-md-6 col-md-offset-3">
-    		 <div class="panel panel-default">
-                <div class="panel-body">
-                    <h1 style="font-family:'Sofia';font-size: 50px;">Come and share with us 😉! </h1></br>
-                    <form method="POST">
-                        {% csrf_token %}
-                      <div class="form-group">
-                        <label for="destination" style="font-family:'Lobster';font-size: 25px">The destination you want to travel to 👉 </label>
-                        <input name="destination" id="destination" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter text">
-                      </div>
+    </br>
+    </br>
+    </br>
+    <div class="container">
+        <div class="row vertical-offset-200">
+            <div class="col-md-6 col-md-offset-3">
+                 <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1 style="font-family:'Sofia';font-size: 50px;">Come and share with us 😉! </h1></br>
+                        <form method="POST">
+                            {% csrf_token %}
+                          <div class="form-group">
+                            <label for="destination" style="font-family:'Lobster';font-size: 25px">The destination you want to travel to 👉 </label>
+                            <input name="destination" id="destination" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter text">
+                          </div>
 
-                        <label for="text" style="font-family:'Lobster';font-size: 25px">what's your recommendation: </label>
-                        <textarea name="text" id="text" class="form-control counted" placeholder="what's your recommendation:" rows="6" style="margin-bottom:10px;"></textarea></br>
-                        <button class="btn btn-info" type="submit">Share ☝️</button>
-                    </form>
+                            <label for="text" style="font-family:'Lobster';font-size: 25px">what's your recommendation: </label>
+                            <textarea name="text" id="text" class="form-control counted" placeholder="what's your recommendation:" rows="6" style="margin-bottom:10px;"></textarea></br>
+                            <button class="btn btn-info" type="submit">Share ☝️</button>
+                        </form>
 
+                    </div>
                 </div>
             </div>
-		</div>
-	</div>
-</div>
-
+        </div>
+    </div>
 </body>
 </html>

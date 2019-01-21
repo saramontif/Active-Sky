@@ -7,6 +7,7 @@ from core.views.active_main_window import get_data_from_user
 
 class ScanForm(forms.Form):
     text = forms.CharField(label='text', max_length=100)
+    destination = forms.CharField(label='destination', max_length=100)
 
 
 class ScanView(FormView):
