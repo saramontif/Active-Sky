@@ -14,7 +14,7 @@ def get_data_from_user(d):
     if d['destination'] != '':
         destination = d['destination']
 
-    recommendations.append(d['text'])
+    recommendations.append("SEAT __:    " + d['text'])
 
 
 class active_view(TemplateView):
@@ -31,8 +31,8 @@ class active_view(TemplateView):
         return destination
 
     # def get_seat(self):
-    #     return
+    #     return "SEAT __:    "
 
 
     def get_recognization(self):
-        return "SEAT __:    " + '\n'.join(recommendations)
+        return '\n'.join(recommendations)
