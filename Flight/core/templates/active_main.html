@@ -7,17 +7,14 @@
 </head>
     <body>
         <h1>✈✈✈✈ Welcome to Your Locations ✈✈✈✈️!</h1>
-        <h1>Topic:️</h1>
-        <form action="/comments/" method="post">
-        <label for="your_name">Your comments: </label>
-        <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-        <input type="submit" value="OK">
-        </form>
-        <form>
-            <textarea>{{userSetting.list | join:"&#10;"}}</textarea>
+        <h1>{{ view.get_topic }}</h1>
 
+        <form action="/comments/" method="post">
+            <iframe width="560" height="315" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br>
+            <div>{{ view.get_seat }}</div>
+            <div> {{ view.get_recognization }}</div>
         </form>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/jMIELC0KFs4?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     </body>
 </html>
