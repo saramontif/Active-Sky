@@ -1,19 +1,16 @@
 from django import forms
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, FormView
+from django.urls import reverse
+from django.views.generic import FormView
 
 from core.views.active_main_window import get_data_from_user
 from core.views.main_first_window import event
 
-
-
 class ScanForm(forms.Form):
     destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
     text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
+    is_a_tourist_site = forms.BooleanField()
 
-    is_a_tourist_site = forms.BooleanField(required=False)
-
-    # seat = get_seat_from_url()
 
 
 
@@ -23,10 +20,13 @@ class ScanView(FormView):
 
     def form_valid(self, form):
         d = form.cleaned_data
+        d['seat'] = self.kwargs['seat']
         event()
         get_data_from_user(d)
-        return redirect('phone_scan')
+        return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
 
     def form_invalid(self, form):
-        # assert False, form.error
-        return redirect('phone_scan')
+        d = form.cleaned_data
+        d['seat'] = self.kwargs['seat']
+        return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
+
