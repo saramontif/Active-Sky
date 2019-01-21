@@ -6,7 +6,7 @@ from core.views.scan_qr import ScanQr
 from core.views.main_first_window import HomeView, FlagView
 
 urlpatterns = [
-    path('phone_scan/', ScanView.as_view(), name='scan'),
+    path('phone_scan/', ScanView.as_view(), name='phone_scan'),
     path('start/', HomeView.as_view(), name='start'),
     path('active/', Active_view.as_view(), name='active_window'),
     path('scan/', ScanQr.as_view(), name='scan_window'),
