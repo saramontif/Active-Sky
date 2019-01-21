@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
 
-temp = 'active_main.html' #'first_main_html.html'
 destination = ""
 recommendations = []
 def get_data_from_user(d):
@@ -16,7 +15,7 @@ def get_data_from_user(d):
 
 
 class Active_view(TemplateView):
-    template_name = temp
+    template_name = 'active_main.html'
 
     def get_url(self):
         place = destination

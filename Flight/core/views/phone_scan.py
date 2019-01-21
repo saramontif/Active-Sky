@@ -19,8 +19,8 @@ class ScanView(FormView):
         d = form.cleaned_data
         event()
         get_data_from_user(d)
-        return redirect('phone_scan/')
+        return redirect('phone_scan')
 
     def form_invalid(self, form):
         # assert False, form.error
-        return redirect('phone_scan/')
+        return redirect('phone_scan')
