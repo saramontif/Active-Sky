@@ -1,12 +1,6 @@
-import qrcode
-qr = qrcode.QRCode(
-    version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_L,
-    box_size=10,
-    border=4,
-)
-qr.add_data(u"Active views",)
-qr.make(fit=True)
+import pyqrcode
 
-img = qr.make_image()
-img.save("image.jpg")
+url = pyqrcode.create('http://uca.edu/8787/?x=123')
+url.png('url.png')
+
+
