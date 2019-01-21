@@ -2,6 +2,13 @@ from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
 
+data = 0
+def get_data_from_user(d):
+    global data
+    data = d
+    print("=========")
+    print(d)
+    print("=========")
 
 class active_view(TemplateView):
     template_name = 'active_main.html'
@@ -17,4 +24,8 @@ class active_view(TemplateView):
         return "TOPIC..."
 
     def get_seat(self):
-        return "YOUR COMMENT: ..."
+        return "SEAT __:    "
+
+
+    def get_recognization(self):
+        return data['text']
