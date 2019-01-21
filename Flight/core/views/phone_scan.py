@@ -5,7 +5,7 @@ from django.views.generic import TemplateView, FormView
 
 class ScanForm(forms.Form):
     text = forms.CharField(label='text', max_length=100)
-    destination = forms.Textarea(label='destination', max_length=100)
+    destination = forms.CharField(label='destination', max_length=100)
 
 
 class ScanView(FormView):
