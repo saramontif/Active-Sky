@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView
 
 
 class ScanQr(TemplateView):
