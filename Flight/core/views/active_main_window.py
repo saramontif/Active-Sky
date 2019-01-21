@@ -3,16 +3,20 @@ import re
 import urllib.parse, urllib.request
 
 destination = ""
+is_site = ""
 recommendations = []
 def get_data_from_user(d):
     global destination
+    global is_site
 
     if d['destination'] != '':
         destination = d['destination']
         recommendations.clear()
 
-    recommendations.append(f"SEAT {d['seat']}:    " + d['text'])
+    if d['is_a_tourist_site'] != '':
+        is_site = True
 
+    recommendations.append(f"SEAT {d['seat']}:    " + d['text'])
 
 class Active_view(TemplateView):
     template_name = 'active_main.html'
@@ -33,3 +37,6 @@ class Active_view(TemplateView):
 
     def get_recognization(self):
         return '\n\n'.join(recommendations) # the \n does'nt work!!!
+
+    def is_site(self):
+        return is_site
