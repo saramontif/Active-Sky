@@ -16,15 +16,10 @@ def get_seat_from_url():
 
 class ScanForm(forms.Form):
     destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
-<<<<<<< HEAD
     text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
-    seat = get_seat_from_url()
-=======
     is_a_tourist_site = forms.BooleanField()
-    text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 27}), max_length=100)
+    seat = get_seat_from_url()
 
-
->>>>>>> 9faeaa414556b57cd703e5cd2efc2ca509678c68
 
 class ScanView(FormView):
     template_name = 'phone_scan.html'
