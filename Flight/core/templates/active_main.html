@@ -10,10 +10,10 @@
         <h1>✈✈✈✈ Welcome to Your Locations ✈✈✈✈️!</h1>
         <h1>{{ view.get_topic }}</h1>
 
-        <iframe width="560" height="315" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
         <form>
-            {% if view.is_site == true %}
+            {% if view.is_site ==  True %}
+            <iframe width="560" height="315" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
             <br>
             {% endif %}
             <div> {{ view.get_recognization }}</div>
