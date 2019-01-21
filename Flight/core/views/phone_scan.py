@@ -1,30 +1,18 @@
 from django import forms
-from django.http import request
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, FormView
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.views.generic import FormView
 
 from core.views.active_main_window import get_data_from_user
 from core.views.main_first_window import event
-import urllib.parse as urlparse
-
-
-def get_seat_from_url():
-    url = request.build_absolute_uri()
-    parsed = urlparse.urlparse(url)
-    seat = urlparse.parse_qs(parsed.query)['def']
-    return seat
 
 class ScanForm(forms.Form):
     destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
-<<<<<<< HEAD
     text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
-    seat = get_seat_from_url()
-=======
     is_a_tourist_site = forms.BooleanField()
     text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 6, 'cols': 27}), max_length=100)
 
 
->>>>>>> 9faeaa414556b57cd703e5cd2efc2ca509678c68
 
 class ScanView(FormView):
     template_name = 'phone_scan.html'
@@ -32,10 +20,14 @@ class ScanView(FormView):
 
     def form_valid(self, form):
         d = form.cleaned_data
+        d['seat'] = self.kwargs['seat']
         event()
         get_data_from_user(d)
-        return redirect('phone_scan/')
+        return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
 
     def form_invalid(self, form):
-        # assert False, form.error
-        return redirect('phone_scan/')
+        d = form.cleaned_data
+        d['seat'] = self.kwargs['seat']
+        return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
+
+
