@@ -2,23 +2,24 @@ from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
 
+temp = 'active_main.html' #'first_main_html.html'
 destination = ""
 recommendations = []
 def get_data_from_user(d):
-    global destination
+    # global temp
+    # temp = 'active_main.html'
 
-    print("===================")
-    print(d)
-    print("===================")
+    global destination
 
     if d['destination'] != '':
         destination = d['destination']
+        recommendations.clear()
 
     recommendations.append("SEAT __:    " + d['text'])
 
 
 class Active_view(TemplateView):
-    template_name = 'active_main.html'
+    template_name = temp
 
     def get_url(self):
         place = destination
@@ -35,4 +36,4 @@ class Active_view(TemplateView):
 
 
     def get_recognization(self):
-        return '\n'.join(recommendations)
+        return '\n\n'.join(recommendations) # the \n does'nt work!!!
