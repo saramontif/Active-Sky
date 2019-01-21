@@ -46,7 +46,13 @@
                             <div style="font-family:'Muli', sans-serif, cursive;font-size: 45px">
                             {{ form.as_p }}
                             </div>
-                            <button style="font-family:'Sofia';font-size: 45px;" class="btn btn-info" type="submit">Share ☝️</button>
+                            <button style="font-family:'Sofia';font-size: 45px;" class="btn btn-info" type="submit" onclick="myFunction()">Share ☝️</button>
+                            <script>
+                                function myFunction() {
+                                      alert("Your recommendation has been sent successfully!");
+                                 }
+                            </script>
+
                         </form>
 
                     </div>
@@ -54,5 +60,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

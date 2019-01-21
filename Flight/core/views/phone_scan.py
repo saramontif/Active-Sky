@@ -1,7 +1,9 @@
 from django import forms
-from django.http import request
-from django.shortcuts import render, redirect
+from django.http import request, HttpResponseRedirect
+from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView, FormView
+from django.contrib import messages
+
 
 from core.views.active_main_window import get_data_from_user
 from core.views.main_first_window import event
@@ -17,12 +19,13 @@ def get_seat_from_url():
 
 class ScanForm(forms.Form):
     destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
-    text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
     is_a_tourist_site = forms.BooleanField(required=False)
     text = forms.CharField(label="what's your recommendation?",widget=forms.Textarea(attrs={'rows': 5, 'cols': 25}), max_length=100)
-
     seat = get_seat_from_url()
 
+    # messages.info(request, 'Your recommendation has been sent successfully!')
+
+    # render('ScanForm_name', message='Your recommendation has been sent successfully!')
 
 
 class ScanView(FormView):
