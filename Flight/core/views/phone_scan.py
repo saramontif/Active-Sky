@@ -1,12 +1,13 @@
 from django import forms
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView
 
 from core.views.active_main_window import get_data_from_user
 
 
 class ScanForm(forms.Form):
-    destination = forms.CharField(label='destination', required=False, max_length=100)
-    text = forms.CharField(label='text',widget=forms.Textarea, max_length=100)
+    destination = forms.CharField(label='The destination you want to travel 👉', required=False, max_length=50)
+    text = forms.CharField(label="what's your recommendation❔" ,widget=forms.Textarea, max_length=100)
 
 
 class ScanView(FormView):
@@ -16,6 +17,8 @@ class ScanView(FormView):
     def form_valid(self, form):
         d = form.cleaned_data
         get_data_from_user(d)
+        # return ScanView
+        return redirect('phone_scan')
 
     def form_invalid(self, form):
         assert False, form.error
