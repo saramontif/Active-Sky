@@ -31,7 +31,7 @@
             <div class="col-md-6 col-md-offset-3">
                  <div class="panel panel-default">
                     <div class="panel-body">
-                        <h1 style="font-family:'Sofia';font-size: 50px;">Come and share with us 😉! </h1></br>
+                        <h1 style="font-family:'Sofia';font-size: 65px;">Come and share with us 😉! </h1></br>
                         <form method="POST">
                             {% csrf_token %}
                           <!--<div class="form-group">-->
@@ -42,7 +42,9 @@
 
                             <!--<label for="text" style="font-family:'Lobster';font-size: 25px">what's your recommendation: </label>-->
                             <!--<textarea name="text" id="text" class="form-control counted" placeholder="what's your recommendation:" rows="6" style="margin-bottom:10px;"></textarea></br>-->
+                            <div style="font-family:'Sofia';font-size: 25px;">
                             {{ form.as_p }}
+                            </div>
                             <button class="btn btn-info" type="submit">Share ☝️</button>
                         </form>
 
