@@ -1,7 +1,21 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django import forms
 
-class scan(TemplateView):
+from django.views.generic import TemplateView, FormView
+
+
+class ScanForm(forms.Form):
+    text = forms.CharField(label='text', max_length=100)
+
+
+class ScanView(FormView):
     template_name = 'phone_scan.html'
+    form_class = ScanForm
+
+    def form_valid(self, form):
+        d = form.cleaned_data
+        return d
+
+    def form_invalid(self, form):
+        assert False, form.errors
+
 
