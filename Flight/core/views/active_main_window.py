@@ -6,9 +6,6 @@ temp = 'active_main.html' #'first_main_html.html'
 destination = ""
 recommendations = []
 def get_data_from_user(d):
-    # global temp
-    # temp = 'active_main.html'
-
     global destination
 
     if d['destination'] != '':
