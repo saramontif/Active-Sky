@@ -4,10 +4,12 @@ import urllib.parse, urllib.request
 
 destination = ""
 is_site = ""
+seat = ""
 recommendations = []
 def get_data_from_user(d):
     global destination
-    global is_site
+    global is_sit
+    global seat
 
     if d['destination'] != '':
         destination = d['destination']
@@ -31,8 +33,9 @@ class Active_view(TemplateView):
     def get_topic(self):
         return destination
 
-    # def get_seat(self):
-    #     return "SEAT __:    "
+    def get_seat(self):
+        # return f"SEAT __:   {d['seat']} "
+        pass
 
 
     def get_recognization(self):

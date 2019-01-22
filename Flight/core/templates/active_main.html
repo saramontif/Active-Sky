@@ -4,21 +4,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--<meta http-equiv="refresh" content="3">-->
     <title>Some Name</title>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <style>
+        iframe.embed-responsive-item {
+            margin: auto;
+            display: block;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        .c{
+            width:45%;
+            height:25%;
+            margin: auto;
+            display: block;
+        }
+    </style>
 </head>
     <body>
-        <h1>✈✈✈✈ Welcome to Your Locations ✈✈✈✈️!</h1>
-        <h1>{{ view.get_topic }}</h1>
 
         <form>
-            {% if view.is_site ==  True %}
-            <iframe width="560" height="315" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+            <div >
+            <h1 style="font-family: 'Gloria Hallelujah', cursive; " >{{ view.get_topic }}</h1>
+
+            <iframe class="embed-responsive-item" width="750" height="400" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br>
-            {% endif %}
-            <div> {{ view.get_recognization }}</div>
 
-            <!--<div>{{ view.get_seat }}</div>-->
+            </div>
+
+            <div>
+
+            <div class="c">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<!--<h3 class="panel-title"><div>{{ view. }}</div></h3>-->
+					<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+				</div>
+				<div class="panel-body"><div> {{ view.get_recognization }}</div></div>
+		    </div>
+            </div>
+
+
+
+            <div class="c">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<!--<h3 class="panel-title"><div>{{ view.get_seat }}</div></h3>-->
+					<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+				</div>
+				<div class="panel-body"><div> {{ view.get_recognization }}</div></div>
+		    </div>
+            </div>
+
+            </div>
+
+
+
         </form>
 
     </body>
