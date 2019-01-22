@@ -25,7 +25,7 @@
             display: block;
         }
         h1 {
-            text-align: center;
+            text-align: left;
         }
 
         .c{
@@ -34,14 +34,21 @@
             margin: auto;
             display: block;
         }
+
+        aside{
+            width:45%;
+            height:25%;
+
+        }
     </style>
 </head>
     <body>
-
+            <aside>
+                <h1 style="font-family: 'Gloria Hallelujah', cursive; font-size: 75px;" >{{ view.get_topic }}</h1>
+            </aside>
         <form>
 
             <div >
-            <h1 style="font-family: 'Gloria Hallelujah', cursive; " >{{ view.get_topic }}</h1>
 
             <iframe class="embed-responsive-item" width="750" height="400" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br>

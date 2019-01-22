@@ -46,8 +46,8 @@ class ScanView(FormView):
         fact.save()
 
         event()
-        return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
+        return redirect(reverse('phone_scan', args=(self.kwargs['seat'])))
 
     def form_invalid(self, form):
-        return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
+        return redirect(reverse('phone_scan', args=(self.kwargs['seat'])))
 
