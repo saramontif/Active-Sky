@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+    body#LoginForm{ background-image:url("https://thumbs.dreamstime.com/t/yellow-gradient-background-color-soft-light-bright-wallpaper-beautiful-picture-hue-blur-118766953.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 </style>
 </head>
 <body id="LoginForm">
@@ -38,18 +38,10 @@
                         <h1 style="font-family:'Sofia';font-size: 85px;">Come and share with us 😉! </h1></br></br>
                         <form method="POST">
                             {% csrf_token %}
-                          <!--<div class="form-group">-->
-                            <!--<label for="destination" style="font-family:'Lobster';font-size: 25px">The destination you want to travel to 👉 </label>-->
-                            <!--<input name="destination" id="destination" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter text">-->
-                          <!--</div>-->
-
-
-                            <!--<label for="text" style="font-family:'Lobster';font-size: 25px">what's your recommendation: </label>-->
-                            <!--<textarea name="text" id="text" class="form-control counted" placeholder="what's your recommendation:" rows="6" style="margin-bottom:10px;"></textarea></br>-->
                             <div style="font-family:'Muli', sans-serif, cursive;font-size: 48px">
                             {{ form.as_p }}
-                            </div></br>
-                            <button style="font-family:'Sofia';font-size: 48px;" class="btn btn-info" type="submit" onclick="myFunction()">Share ☝️</button>
+                            </div></br></br>
+                            <button style="font-family:'Sofia';font-size: 50px;" class="btn btn-info" type="submit" onclick="myFunction()">Share ☝️</button>
                             <script>
                                 function myFunction() {
                                       alert("Your recommendation has been sent successfully!");
