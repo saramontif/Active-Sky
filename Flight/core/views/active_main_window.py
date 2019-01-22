@@ -3,16 +3,6 @@ import re
 import urllib.parse, urllib.request
 from core.models import Dest, Facts
 
-destination = ""
-is_site = ""
-seat = ""
-recommendations = []
-
-def get_data_from_user(d):
-    global destination
-    global is_sit
-    global seat
-
 
 
 class Active_view(TemplateView):
