@@ -20,8 +20,8 @@ class Active_view(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.dest0 = Dest.objects.order_by("?").first()
-        self.recs = Facts.objects.get(dest_name=self.dest0.name)
-        # self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]#self.dest.fact_set.all()
+        # self.recs = Facts.objects.get(dest_name=self.dest0.name)
+        self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]#self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
 
     def get_url(self):
@@ -36,7 +36,7 @@ class Active_view(TemplateView):
 
     def get_recognization(self):
         str_recs = [rec['content'] for rec in self.recs]
-        return '\n\n'.join(str_recs) # the \n does'nt work!!!
+        return '\n\n'.join(str_recs)# the \n does'nt work!!!
 
     def is_site(self):
         return self.dest0.is_site
