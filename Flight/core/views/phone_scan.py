@@ -40,7 +40,8 @@ class ScanView(FormView):
         #     pass #TODO : delete from database!!!!!!!!
 
         # dest['date'] = timezone.now()
-        # dest0.save()
+        dest0.date = timezone.now()
+        dest0.save()
 
         fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
         fact.save()
