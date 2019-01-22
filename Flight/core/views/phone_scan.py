@@ -1,5 +1,3 @@
-import datetime
-
 from django import forms
 
 
@@ -30,6 +28,7 @@ class ScanView(FormView):
         else:
             dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=timezone.now())
             dest0.save()
+
 
             # dest0.date = timezone.now()
             # dest0.save()
