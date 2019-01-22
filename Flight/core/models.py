@@ -11,10 +11,12 @@ class Dest(models.Model):
 
 
 class Facts(models.Model):
-    dest = models.ForeignKey(Dest, on_delete=models.CASCADE)
+    dest_name = models.ForeignKey(Dest, on_delete=models.CASCADE)
     content = models.TextField(blank=True, null=True)
+    num_seat = models.DecimalField(max_digits=4, decimal_places=0)
+
 
     def __str__(self):
-        return self.dest
+        return self.dest_name
 
 
