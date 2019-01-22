@@ -14,14 +14,14 @@ class Active_view(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         while(True):
             if Dest.objects.count() == 0:
-                return redirect(reverse('start'))#, args=[self.kwargs['seat']]))
+                return redirect(reverse('start'))
             else:
                 self.dest0 = Dest.objects.order_by("?").first()
                 now = datetime.datetime.now()
-                if (now - self.dest0.date).time().minute < 3:
-                    Dest.objects.filter(name=self.dest0.name).delete()
-                else:
-                    break
+                # if (now - self.dest0.date).time().minute < 3:
+                #     Dest.objects.filter(name=self.dest0.name).delete()
+                # else:
+                break
 
         self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]  # self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
