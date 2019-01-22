@@ -20,7 +20,10 @@ class Active_view(TemplateView):
         query_string = urllib.parse.urlencode({"search_query": place})
         html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
         search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
-        return f"https://www.youtube.com/embed/{search_results[0]}"
+        return f"https://www.youtube.com/embed/{search_results[0]}?autoplay=1"
+
+   #def get_url(self):
+   #    return 'https://www.youtube.com/watch?v=jMIELC0KFs4&t=1321s'
 
     def get_topic(self):
         return self.dest0.name
@@ -39,5 +42,5 @@ class Active_view(TemplateView):
 
     def delete_DB(self):
         now = datetime.datetime.now().date()
-        if (now - self.dest0.date).seconds > 3000:
+        if (now - self.dest0.date).seconds > 10:
             Facts.objects.filter(name=self.dest0.name).delete()
