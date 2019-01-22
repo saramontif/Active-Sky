@@ -24,15 +24,14 @@ class ScanView(FormView):
         d = form.cleaned_data
 
         if d['destination'] == '':
-            dest0 = Dest.objects.get(name=d['destination'])
-        else:
+            return redirect(reverse('phone_scan', args=[self.kwargs['seat']]))
+        dest0 = Dest.objects.get(name=d['destination'])
+        if dest0 == None:
             dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=timezone.now())
             dest0.save()
 
-
-
-            # dest0.date = timezone.now()
-            # dest0.save()
+        # dest0.date = timezone.now()
+        # dest0.save()
 
         fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
         fact.save()
