@@ -24,8 +24,8 @@ class ScanView(FormView):
 
 
     def form_valid(self, form):
-        d = form.cleaned_dat
-
+        if  form.is_valid():
+            d = form.cleaned_dat
         if d['destination'] == '':
             dest0 = Dest.objects.get(name=d['destination'])
         else:
