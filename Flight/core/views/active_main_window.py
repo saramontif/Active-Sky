@@ -20,7 +20,8 @@ class Active_view(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.dest0 = Dest.objects.order_by("?").first()
-        self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]#self.dest.fact_set.all()
+        self.recs = Facts.objects.get(dest=self.dest0.name)
+        # self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]#self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
 
     def get_url(self):
@@ -41,5 +42,5 @@ class Active_view(TemplateView):
         return self.dest0.is_site
 
     def get_num_seat(self):
-        fact = [rec['num_seat'] for rec in self.recs]
+        fact = [rec.num_seat for rec in self.recs]
         return '\n\n'.join(fact)

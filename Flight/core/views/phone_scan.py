@@ -23,7 +23,7 @@ class ScanView(FormView):
     form_class = ScanForm
 
     def bool_is_site(self, d):
-        if d['is_a_tourist_site'] != '':
+        if d != '':
             return True
         return False
 
@@ -31,18 +31,18 @@ class ScanView(FormView):
         d = form.cleaned_data
 
         if d['destination'] == '':
-            dest = Dest.objects.get(name=d['destination'])
+            dest0 = Dest.objects.get(name=d['destination'])
         else:
-            dest = Dest(name=d['destination'], is_site=self.bool_is_site(d['is_a_tourist_site']), date=timezone.now())
-            dest.save()
+            dest0 = Dest(name=d['destination'], is_site=self.bool_is_site(d['is_a_tourist_site']), date=timezone.now())
+            dest0.save()
 
         # if timezone.now().minute - dest['date'].minute < 5:
         #     pass #TODO : delete from database!!!!!!!!
 
-        dest['date'] = timezone.now()
-        dest.save()
+        # dest['date'] = timezone.now()
+        # dest0.save()
 
-        fact = Facts(dest=dest, content=d['text'], num_seat=self.kwargs['seat'])
+        fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
         fact.save()
 
         event()
