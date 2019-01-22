@@ -11,8 +11,11 @@ class Active_view(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         while(True):
+            global template_name
             if Dest.objects.count() == 0:
-                pass
+                template_name = 'active_main.html'
+                print("+++++")
+                print(self.kwargs)
             self.dest0 = Dest.objects.order_by("?").first()
             now = datetime.datetime.now()
             if (now - self.dest0.date).time().minute < 3:
