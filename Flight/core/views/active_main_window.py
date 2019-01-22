@@ -40,6 +40,7 @@ class Active_view(TemplateView):
         return '\n\n'.join(fact)
 
     def delete_DB(self):
-        now = datetime.datetime.now()
-        fact = [ dest  for dest in self.dest0 if (now - dest.date) > 5000]
-        Dest.objects.exclude(pk__in=list(fact)).delete()
+        pass
+    #     now = datetime.datetime.now()
+    #     fact = [ dest  for dest in self.dest0 if (now - dest.date) > 5000]
+    #     Dest.objects.exclude(pk__in=list(fact)).delete()

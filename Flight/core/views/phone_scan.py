@@ -22,10 +22,10 @@ class ScanView(FormView):
     template_name = 'phone_scan.html'
     form_class = ScanForm
 
-    def bool_is_site(self, d):
-        if d != '':
-            return True
-        return False
+    # def bool_is_site(self, d):
+    #     if d == 'on':
+    #         return True
+    #     return False
 
     def form_valid(self, form):
         d = form.cleaned_data
@@ -33,7 +33,8 @@ class ScanView(FormView):
         if d['destination'] == '':
             dest0 = Dest.objects.get(name=d['destination'])
         else:
-            dest0 = Dest(name=d['destination'], is_site=self.bool_is_site(d['is_a_tourist_site']), date=timezone.now())
+            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=timezone.now())
+            # dest0 = Dest(name=d['destination'], is_site=self.bool_is_site(d['is_a_tourist_site']), date=timezone.now())
             dest0.save()
 
         # if timezone.now().minute - dest['date'].minute < 5:
