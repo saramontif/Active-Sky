@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,16 +62,21 @@
             </div>
             {% endif %}
 
+        {% block content %}
+        {% for rec in view.get_recs %}
+            <p>{{rec.num_seat}}</p>
+           <p>{{rec.content}}</p>
             <div class="col-sm">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><div>seat: {{ view.get_num_seat }}</div></h3>
+                        <h3 class="panel-title"><div>seat: {{ rec.num_seat }}</div></h3>
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                     </div>
-                    <div class="panel-body"><div> {{ view.get_recognization }}</div></div>
+                    <div class="panel-body"><div> {{ rec.content }}</div></div>
                 </div>
             </div>
-
+            {% endfor %}
+        {% endblock %}
         </form>
 
         <form class="row" id="temp"></br>

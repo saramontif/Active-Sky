@@ -23,8 +23,11 @@ class Active_view(TemplateView):
                 # else:
                 break
 
-        self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]  # self.dest.fact_set.all()
+        self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0.name]  # self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
+
+    def get_recs(self):
+        # return self.recs [rec for rec in Facts.objects.all()..prefetch_related('many_set')]
 
     def get_url(self):
         place = self.dest0.name
