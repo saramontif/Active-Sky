@@ -20,7 +20,7 @@ class Active_view(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.dest0 = Dest.objects.order_by("?").first()
-        self.recs = Facts.objects.get(dest=self.dest0.name)
+        self.recs = Facts.objects.get(dest_name=self.dest0.name)
         # self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]#self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
 
