@@ -43,4 +43,4 @@ class Active_view(TemplateView):
 
     def get_num_seat(self):
         fact = [rec.num_seat for rec in self.recs]
-        return '\n\n'.join(fact)
+        return str('\n\n'.join(fact))
