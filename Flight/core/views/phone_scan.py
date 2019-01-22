@@ -1,3 +1,5 @@
+import datetime
+
 from django import forms
 
 
@@ -28,11 +30,11 @@ class ScanView(FormView):
         if d['destination'] == '':
             dest0 = Dest.objects.get(name=d['destination'])
         else:
-            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=timezone.now())
+            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=datetime.now())
             dest0.save()
 
-        dest0.date = timezone.now()
-        dest0.save()
+        # dest0.date = timezone.now()
+        # dest0.save()
 
         fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
         fact.save()

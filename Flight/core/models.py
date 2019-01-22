@@ -1,7 +1,9 @@
+import datetime
+
 from django.db import models
 
 class Dest(models.Model):
-    date = models.DateField()
+    date = models.DateTimeField(default=datetime.datetime.now())
     name = models.CharField(max_length=50)
     is_site = models.BooleanField(default=False)
 
