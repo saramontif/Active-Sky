@@ -1,4 +1,4 @@
-from datetime import date, datetime
+import datetime
 
 from django.views.generic import TemplateView
 import re
@@ -27,6 +27,7 @@ class Active_view(TemplateView):
         return self.dest0.name
 
     def get_recognization(self):
+        self.delete_DB()
         str_recs = [rec.content for rec in self.recs]
         return '\n\n'.join(str_recs)# the \n does'nt work!!!
 
@@ -39,6 +40,5 @@ class Active_view(TemplateView):
 
     def delete_DB(self):
         now = datetime.datetime.now()
-        fact = [ rec  for rec in self.recs if (now - rec.date) > 5000]
-        notes = Dest.objects.filter(fact)
-        Dest.objects.exclude(pk__in=list(notes)).delete()
+        fact = [ dest  for dest in self.dest0 if (now - dest.date) > 5000]
+        Dest.objects.exclude(pk__in=list(fact)).delete()
