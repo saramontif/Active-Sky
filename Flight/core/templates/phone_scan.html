@@ -19,8 +19,11 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+</style>
 </head>
-<body>
+<body id="LoginForm">
 
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <!-- This is a very simple parallax effect achieved by simple CSS 3 multiple backgrounds, made by http://twitter.com/msurguy -->
@@ -31,7 +34,7 @@
         <div class="row vertical-offset-200">
             <div class="col-md-8 col-md-offset-3">
                  <div class="panel panel-default">
-                    <div class="panel-body">
+                    <div class="panel-body" >
                         <h1 style="font-family:'Sofia';font-size: 85px;">Come and share with us 😉! </h1></br></br>
                         <form method="POST">
                             {% csrf_token %}
