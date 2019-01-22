@@ -43,4 +43,3 @@ class ScanView(FormView):
 
     def form_invalid(self, form):
         return redirect(reverse('phone_scan', args=[self.kwargs['seat']]))
-
