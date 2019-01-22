@@ -23,7 +23,7 @@ class ScanView(FormView):
     form_class = ScanForm
 
     def bool_is_site(self, d):
-        if d['is_a_tourist_site'] != '':
+        if d != '':
             return True
         return False
 
