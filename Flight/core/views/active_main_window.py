@@ -29,6 +29,7 @@ class Active_view(TemplateView):
         return '\n\n'.join(str_recs)# the \n does'nt work!!!
 
     def is_site(self):
+        print(self.dest0.is_site)
         return self.dest0.is_site
 
     def get_num_seat(self):
