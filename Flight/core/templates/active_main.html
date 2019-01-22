@@ -20,12 +20,13 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
     <style>
+        body#LoginForm{ background-image:url("https://i2.wp.com/media.boingboing.net/wp-content/uploads/2018/05/cool-background1.png?w=1192&ssl=1"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
         iframe.embed-responsive-item {
             margin: auto;
             display: block;
         }
         h1 {
-            text-align: left;
+            text-align:center ;
         }
 
         .c{
@@ -37,40 +38,29 @@
         }
 
         aside{
-            width:45%;
-            height:25%;
+            <!--width:45%;-->
+            <!--height:25%;-->
             margin: auto;
             display: block;
+            float: left;
+
 
 
         }
     </style>
 </head>
-    <body>
-            <aside>
-                <h1 style="font-family: 'Gloria Hallelujah', cursive; font-size: 75px;" >{{ view.get_topic }}</h1>
-            </aside>
+    <body id="LoginForm">
+            <!--<aside>-->
+                <!---->
+            <!--</aside>-->
         <form>
-
             <div >
+             <h1 style="font-family: 'Gloria Hallelujah', cursive; font-size: 75px;" >{{ view.get_topic }}</h1></br></br>
             {% if view.is_site ==  True %}
             <iframe class="embed-responsive-item" width="750" height="400" src={{ view.get_url }} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br>
                 {% endif %}
             </div>
-
-            <div>
-
-            <!--<div class="c">-->
-			<!--<div class="panel panel-primary">-->
-				<!--<div class="panel-heading">-->
-					<!--<h3 class="panel-title"><div>{{ view.get_num_seat }}</div></h3>-->
-					<!--<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>-->
-				<!--</div>-->
-				<!--<div class="panel-body"><div> {{ view.get_recognization }}</div></div>-->
-		    <!--</div>-->
-            <!--</div>-->
-
 
             <div class="c">
 			<div class="panel panel-info">
@@ -82,7 +72,6 @@
 		    </div>
             </div>
 
-            </div>
 
 
 
