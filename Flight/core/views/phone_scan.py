@@ -16,29 +16,29 @@ class ScanForm(forms.Form):
     text = forms.CharField(label="what's your recommendation?", widget=forms.Textarea(attrs={'rows': 6, 'cols': 25}), max_length=100)
 
 
-
-
 class ScanView(FormView):
     template_name = 'phone_scan.html'
     form_class = ScanForm
 
 
     def form_valid(self, form):
-        d = form.cleaned_dat
 
-        if d['destination'] == '':
-            dest0 = Dest.objects.get(name=d['destination'])
-        else:
-            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=datetime.now())
-            dest0.save()
+        if form.is_valid():
+            d = form.cleaned_data
 
-        # dest0.date = timezone.now()
-        # dest0.save()
+            if d['destination'] == '':
+                dest0 = Dest.objects.get(name=d['destination'])
+            else:
+                dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=datetime.now())
+                dest0.save()
 
-        fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
-        fact.save()
+            # dest0.date = timezone.now()
+            # dest0.save()
 
-        event()
+            fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
+            fact.save()
+
+            event()
         return redirect(reverse('phone_scan', args=[self.kwargs['seat']]))
 
     def form_invalid(self, form):
