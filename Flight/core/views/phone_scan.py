@@ -37,7 +37,7 @@ class ScanView(FormView):
             dest.save()
 
         # if timezone.now().minute - dest['date'].minute < 5:
-        #     pass #TO DO : delete from database!!!!!!!!
+        #     pass #TODO : delete from database!!!!!!!!
 
         dest['date'] = timezone.now()
         dest.save()
@@ -49,7 +49,5 @@ class ScanView(FormView):
         return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
 
     def form_invalid(self, form):
-        d = form.cleaned_data
-        d['seat'] = self.kwargs['seat']
         return redirect(reverse('phone_scan', args=(self.kwargs['seat'],)))
 
