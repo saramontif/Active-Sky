@@ -25,12 +25,12 @@ class Active_view(TemplateView):
         return self.dest0.name
 
     def get_recognization(self):
-        str_recs = [rec['content'] for rec in self.recs]
+        str_recs = [rec.content for rec in self.recs]
         return '\n\n'.join(str_recs)# the \n does'nt work!!!
 
     def is_site(self):
         return self.dest0.is_site
 
     def get_num_seat(self):
-        fact = [rec.num_seat for rec in self.recs]
+        fact = [str(rec.num_seat) for rec in self.recs]
         return '\n\n'.join(fact)
