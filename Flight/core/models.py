@@ -18,5 +18,3 @@ class Facts(models.Model):
 
     def __str__(self):
         return self.dest_name
-
-
