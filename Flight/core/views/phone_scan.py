@@ -5,6 +5,7 @@ from django import forms
 
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.utils import timezone
 from django.views.generic import FormView
 
 from core.models import Dest, Facts
@@ -24,12 +25,12 @@ class ScanView(FormView):
 
 
     def form_valid(self, form):
-        d = form.cleaned_dat
+        d = form.cleaned_data
 
         if d['destination'] == '':
             dest0 = Dest.objects.get(name=d['destination'])
         else:
-            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=datetime.now())
+            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=timezone.now())
             dest0.save()
 
         # dest0.date = timezone.now()
