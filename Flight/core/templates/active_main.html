@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 
-    <meta http-equiv="refresh" content="15">
+    <meta http-equiv="refresh" content="17">
 
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -49,12 +48,13 @@
             <!--float: center;-->
             left: 60%;
         }
+
     </style>
 </head>
-    <body id="LoginForm">
+<body id="LoginForm">
 
-    <div class="container">
-    <h1 style="font-family: 'Gloria Hallelujah', cursive; font-size: 55px;" >{{ view.get_topic }}</h1>
+<div class="container">
+    <h1 style="font-family: 'Gloria Hallelujah', cursive; font-size: 55px;">{{ view.get_topic }}</h1>
     <form class="row">
             {% if view.is_site ==  True %}
             <div class="col-sm">
@@ -81,15 +81,25 @@
 
         <form class="row" id="temp"></br>
 
-        <!-- weather widget start --><a target="_blank" href="https://www.booked.net/weather/komemiyut-462205"><img src="https://w.bookcdn.com/weather/picture/32_462205_1_1_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=w209&anc_id=45816" alt="booked.net"/></a>
         <!-- weather widget end --></head></br></br></br>
-
-        <script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href","//s.bookcdn.com//css/cl/bw-cl-180x170r1.css"); document.getElementsByTagName("head")[0].appendChild(css_file); </script> <div id="tw_11_799871275"><div style="width:120px; height:140px; margin: 0 auto;"><a href="https://www.booked.net/time/london-18114">London</a><br/></div></div> <script type="text/javascript"> function setWidgetData_799871275(data){ if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_799871275 = -1; </script> <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/time/info?ver=2&domid=&type=11&id=799871275&scode=124&city_id=18114&wlangid=1&mode=2&details=0&background=ffffff&color=363636&add_background=ffffff&add_color=333333&head_color=ffffff&border=0&transparent=0"></script>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        <script type="text/javascript">
+             var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href","//s.bookcdn.com//css/cl/bw-cl-180x170r1.css"); document.getElementsByTagName("head")[0].appendChild(css_file);
+        </script>
+        <div id="tw_11_799871275">
+            <div style="width:120px; height:140px; margin: 0 auto;"><a href="https://www.booked.net/time/london-18114">London</a><br/>
+            </div>
+        </div>
+        <script type="text/javascript">
+             function setWidgetData_799871275(data){ if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = ''; var params = data.results[i]; objMainBlock = document.getElementById('tw_'+params.widget_type+'_'+params.widget_id); if(objMainBlock !== null) objMainBlock.innerHTML = params.html_code; } } } var clock_timer_799871275 = -1;
+        </script>
+        <script type="text/javascript" charset="UTF-8"
+                src="https://widgets.booked.net/time/info?ver=2&domid=&type=11&id=799871275&scode=124&city_id=18114&wlangid=1&mode=2&details=0&background=ffffff&color=363636&add_background=ffffff&add_color=333333&head_color=ffffff&border=0&transparent=0"></script>
 
         </form>
     </div>
+    </div>
 
 
-
-    </body>
+</body>
 </html>

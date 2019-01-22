@@ -27,6 +27,7 @@ class Active_view(TemplateView):
         return super().dispatch(request, *args, **kwargs)
 
     def get_recs(self):
+        self.dest0.
         # return self.recs [rec for rec in Facts.objects.all()..prefetch_related('many_set')]
 
     def get_url(self):
