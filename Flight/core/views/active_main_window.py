@@ -1,5 +1,7 @@
 import datetime
 
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
@@ -11,17 +13,15 @@ class Active_view(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         while(True):
-            global template_name
             if Dest.objects.count() == 0:
-                template_name = 'active_main.html'
-                print("+++++")
-                print(self.kwargs)
-            self.dest0 = Dest.objects.order_by("?").first()
-            now = datetime.datetime.now()
-            if (now - self.dest0.date).time().minute < 3:
-                Dest.objects.filter(name=self.dest0.name).delete()
+                return redirect(reverse('start'))#, args=[self.kwargs['seat']]))
             else:
-                break
+                self.dest0 = Dest.objects.order_by("?").first()
+                now = datetime.datetime.now()
+                if (now - self.dest0.date).time().minute < 3:
+                    Dest.objects.filter(name=self.dest0.name).delete()
+                else:
+                    break
 
         self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]  # self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
