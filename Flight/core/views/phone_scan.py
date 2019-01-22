@@ -31,7 +31,6 @@ class ScanView(FormView):
             dest0.save()
 
 
-
             # dest0.date = timezone.now()
             # dest0.save()
 
