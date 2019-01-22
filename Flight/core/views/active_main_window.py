@@ -1,3 +1,5 @@
+from datetime import date, datetime
+
 from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
@@ -34,3 +36,9 @@ class Active_view(TemplateView):
     def get_num_seat(self):
         fact = [str(rec.num_seat) for rec in self.recs]
         return '\n\n'.join(fact)
+
+    def delete_DB(self):
+        now = datetime.datetime.now()
+        fact = [ rec  for rec in self.recs if (now - rec.date) > 5000]
+        notes = Dest.objects.filter(fact)
+        Dest.objects.exclude(pk__in=list(notes)).delete()
