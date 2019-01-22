@@ -10,7 +10,7 @@ recommendations = []
 
 def get_data_from_user(d):
     global destination
-    global is_sit
+    global is_site
     global seat
 
 
