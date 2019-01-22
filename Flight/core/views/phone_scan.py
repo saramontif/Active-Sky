@@ -42,7 +42,7 @@ class ScanView(FormView):
         dest['date'] = timezone.now()
         dest.save()
 
-        fact = Facts(dest=dest, content=f"SEAT {self.kwargs['seat']}:    " + d['text'])
+        fact = Facts(dest=dest, content=d['text'], num_seat=self.kwargs['seat'])
         fact.save()
 
         event()
