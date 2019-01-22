@@ -3,16 +3,6 @@ import re
 import urllib.parse, urllib.request
 from core.models import Dest, Facts
 
-destination = ""
-is_site = ""
-seat = ""
-recommendations = []
-
-def get_data_from_user(d):
-    global destination
-    global is_site
-    global seat
-
 
 
 class Active_view(TemplateView):
@@ -35,12 +25,12 @@ class Active_view(TemplateView):
         return self.dest0.name
 
     def get_recognization(self):
-        str_recs = [rec['content'] for rec in self.recs]
+        str_recs = [rec.content for rec in self.recs]
         return '\n\n'.join(str_recs)# the \n does'nt work!!!
 
     def is_site(self):
         return self.dest0.is_site
 
     def get_num_seat(self):
-        fact = [rec.num_seat for rec in self.recs]
-        return str('\n\n'.join(fact))
+        fact = [str(rec.num_seat) for rec in self.recs]
+        return '\n\n'.join(fact)
