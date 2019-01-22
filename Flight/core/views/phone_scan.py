@@ -5,7 +5,6 @@ from django import forms
 
 from django.shortcuts import redirect
 from django.urls import reverse
-from django.utils import timezone
 from django.views.generic import FormView
 
 from core.models import Dest, Facts
@@ -15,7 +14,6 @@ class ScanForm(forms.Form):
     destination = forms.CharField(label='What do you want to talk about 👉\n', required=False, max_length=50)
     is_a_tourist_site = forms.BooleanField(required=False)
     text = forms.CharField(label="what's your recommendation?", widget=forms.Textarea(attrs={'rows': 6, 'cols': 25}), max_length=100)
-    # seat = get_seat_from_url()
 
 
 
