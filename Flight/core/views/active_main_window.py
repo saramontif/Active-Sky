@@ -1,5 +1,4 @@
 import datetime
-
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import TemplateView
@@ -18,10 +17,11 @@ class Active_view(TemplateView):
             else:
                 self.dest0 = Dest.objects.order_by("?").first()
                 now = datetime.datetime.now()
-                # if (now - self.dest0.date).time().minute < 3:
-                #     Dest.objects.filter(name=self.dest0.name).delete()
-                # else:
-                break
+                dest_time = (self.dest0.date).replace(tzinfo=None)
+                if (now - dest_time).seconds > 5*60:
+                    Dest.objects.filter(name=self.dest0.name).delete()
+                else:
+                    break
 
         self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]  # self.dest.fact_set.all()
         return super().dispatch(request, *args, **kwargs)
@@ -31,6 +31,8 @@ class Active_view(TemplateView):
         query_string = urllib.parse.urlencode({"search_query": place})
         html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
         search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
+        if search_results == []:
+            return "https://www.youtube.com/embed/7iBqEknWOiU?autoplay=1"
         return f"https://www.youtube.com/embed/{search_results[0]}?autoplay=1"
 
     def get_topic(self):
