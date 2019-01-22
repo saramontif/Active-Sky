@@ -1,8 +1,18 @@
 from django.views.generic import TemplateView
 import re
 import urllib.parse, urllib.request
-
 from core.models import Dest, Facts
+
+destination = ""
+is_site = ""
+seat = ""
+recommendations = []
+
+def get_data_from_user(d):
+    global destination
+    global is_sit
+    global seat
+
 
 
 class Active_view(TemplateView):
@@ -29,3 +39,7 @@ class Active_view(TemplateView):
 
     def is_site(self):
         return self.dest0.is_site
+
+    def get_num_seat(self):
+        fact = [rec['num_seat'] for rec in self.recs]
+        return '\n\n'.join(fact)
