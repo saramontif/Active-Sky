@@ -10,9 +10,17 @@ class Active_view(TemplateView):
     template_name = 'active_main.html'
 
     def dispatch(self, request, *args, **kwargs):
-        self.dest0 = Dest.objects.order_by("?").first()
+        while(True):
+            if Dest.objects.count() == 0:
+                pass
+            self.dest0 = Dest.objects.order_by("?").first()
+            now = datetime.datetime.now()
+            if (now - self.dest0.date).time().minute < 3:
+                Dest.objects.filter(name=self.dest0.name).delete()
+            else:
+                break
+
         self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]  # self.dest.fact_set.all()
-        self.delete_DB()
         return super().dispatch(request, *args, **kwargs)
 
     def get_url(self):
@@ -21,9 +29,6 @@ class Active_view(TemplateView):
         html_content = urllib.request.urlopen("http://www.youtube.com/results?" + query_string)
         search_results = re.findall(r'href=\"\/watch\?v=(.{11})', html_content.read().decode())
         return f"https://www.youtube.com/embed/{search_results[0]}?autoplay=1"
-
-   #def get_url(self):
-   #    return 'https://www.youtube.com/watch?v=jMIELC0KFs4&t=1321s'
 
     def get_topic(self):
         return self.dest0.name
@@ -40,7 +45,3 @@ class Active_view(TemplateView):
         fact = [str(rec.num_seat) for rec in self.recs]
         return '\n\n'.join(fact)
 
-    def delete_DB(self):
-        now = datetime.datetime.now().date()
-        if (now - self.dest0.date).seconds > 10:
-            Facts.objects.filter(name=self.dest0.name).delete()
