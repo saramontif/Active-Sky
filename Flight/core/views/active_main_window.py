@@ -41,5 +41,5 @@ class Active_view(TemplateView):
         return self.dest0.is_site
 
     def get_num_seat(self):
-        fact = [rec['num_seat'] for rec in self.recs]
+        fact = [rec.num_seat for rec in self.recs]
         return '\n\n'.join(fact)
