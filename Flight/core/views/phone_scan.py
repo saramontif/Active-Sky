@@ -22,13 +22,9 @@ class ScanView(FormView):
     template_name = 'phone_scan.html'
     form_class = ScanForm
 
-    # def bool_is_site(self, d):
-    #     if d == 'on':
-    #         return True
-    #     return False
 
     def form_valid(self, form):
-        d = form.cleaned_data
+        d = form.cleaned_dat
 
         if d['destination'] == '':
             dest0 = Dest.objects.get(name=d['destination'])
