@@ -10,15 +10,15 @@ This will be done by an interactive screen that will display sites recommended b
 Optional: Display the recommender's data next to his comment so that they can get feedback from him on "live"
 
 ## Screenshots
-
+### START
 ![START](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/qr.PNG)
-
+### QR
 ![QR](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/start.PNG)
-
+### PHONE
 ![PHONE](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/phone.PNG)
-
+### MAIN WITH VIDO
 ![main1](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/main1.PNG)
-
+### MAIN WITHOUT VIDO
 ![main2](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/main2.PNG)
 
 ## How to Run This App
