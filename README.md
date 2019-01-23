@@ -26,10 +26,13 @@ Optional: Display the recommender's data next to his comment so that they can ge
 ### Prerequisites
 * Python 3.7 
 * pipenv 
+* django
 * qr code
-* html
-* boostap
-* css
+* html5
+* bootstrap
+* css3
+* ngrok
+* javascript
 
 ### Setup
 * Clone this repo from github
@@ -43,6 +46,6 @@ To run this project use:
 (Or just `python main.py` if running in a pipenv shell.)
 
 ## Credits and References
-* {ADD REFERENCES HERE}
+* ngrok
 
 
