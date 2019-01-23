@@ -17,17 +17,17 @@ class Active_view(TemplateView):
                 return redirect(reverse('start'))
             else:
                 self.dest0 = Dest.objects.order_by("?").first()
-                now = datetime.datetime.now()
+                # now = datetime.datetime.now()
                 # if (now - self.dest0.date).time().minute < 3:
                 #     Dest.objects.filter(name=self.dest0.name).delete()
                 # else:
                 break
 
-        self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0.name]  # self.dest.fact_set.all()
+        self.recs = self.dest0.facts_set.all()
         return super().dispatch(request, *args, **kwargs)
 
     def get_recs(self):
-        self.dest0.
+        return self.recs
         # return self.recs [rec for rec in Facts.objects.all()..prefetch_related('many_set')]
 
     def get_url(self):

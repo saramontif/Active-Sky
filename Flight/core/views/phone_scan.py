@@ -11,7 +11,7 @@ from core.views.main_first_window import event
 
 class ScanForm(forms.Form):
     destination = forms.CharField(label='What do you want to talk about 👉\n', required=False, max_length=50)
-    is_a_tourist_site = forms.BooleanField(required=False)
+    is_it_a_tourist_site = forms.BooleanField(required=False)
     text = forms.CharField(label="what's your recommendation?", widget=forms.Textarea(attrs={'rows': 6, 'cols': 25}),
                            max_length=100)
 
@@ -26,11 +26,11 @@ class ScanView(FormView):
 
         if d['destination'] == '':
             return redirect(reverse('phone_scan', args=[self.kwargs['seat']]))
-        try:
-            dest0 = Dest.objects.get(name=d['destination'])
-        except:
-            dest0 = Dest(name=d['destination'], is_site=d['is_a_tourist_site'], date=timezone.now())
-            dest0.save()
+        #try:
+        dest0, created = Dest.objects.get_or_create(name=d['destination'],is_site=d['is_it_a_tourist_site'])
+        #except:
+        #    dest0 = Dest(name=d['destination'], is_site=d['is_it_a_tourist_site'], date=timezone.now())
+        #    dest0.save()
 
         fact = Facts(dest_name=dest0, content=d['text'], num_seat=self.kwargs['seat'])
         fact.save()
