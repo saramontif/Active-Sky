@@ -17,20 +17,21 @@ Optional: Display the recommender's data next to his comment so that they can ge
 ![main1](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/main1.PNG)
 ![main2](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/main2.PNG)
 
-## How to Run This Bot
+## How to Run This App
 
 ### Prerequisites
-* {EDIT AND ADD MORE DEPENDENCIES HERE}
-* Python 3.7 ???
-* pipenv ???
+* Python 3.7 
+* pipenv 
+* qr code
+* html
+* boostap
+* css
 
 ### Setup
-* {EDIT THIS}
 * Clone this repo from github
 * Install dependencies: `pipenv install`
 
 ### Run
-{EDIT THIS}
 To run this project use:
 
     pipenv run python main.py
