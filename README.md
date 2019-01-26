@@ -10,23 +10,35 @@ This will be done by an interactive screen that will display sites recommended b
 Optional: Display the recommender's data next to his comment so that they can get feedback from him on "live"
 
 ## Screenshots
+### START
+![START](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/qr.PNG)
+### QR
+![QR](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/start.PNG)
+### PHONE
+![PHONE](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/phone.PNG)
+### MAIN WITH VIDO
+![main1](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/main1.PNG)
+### MAIN WITHOUT VIDO
+![main2](https://github.com/Elevationacademy/excellenteam-hackathon-ella-active-flight-y-s-s/blob/master/screenshots/main2.PNG)
 
-![SCREESHOT DECSRIPTION](screenshots/excellenteam-logo.jpeg)
-
-## How to Run This Bot
+## How to Run This App
 
 ### Prerequisites
-* {EDIT AND ADD MORE DEPENDENCIES HERE}
-* Python 3.7 ???
-* pipenv ???
+* Python 3.7 
+* pipenv 
+* django
+* qr code
+* html5
+* bootstrap
+* css3
+* ngrok
+* javascript
 
 ### Setup
-* {EDIT THIS}
 * Clone this repo from github
 * Install dependencies: `pipenv install`
 
 ### Run
-{EDIT THIS}
 To run this project use:
 
     pipenv run python main.py
@@ -34,6 +46,6 @@ To run this project use:
 (Or just `python main.py` if running in a pipenv shell.)
 
 ## Credits and References
-* {ADD REFERENCES HERE}
+* ngrok https://ngrok.com/
 
 

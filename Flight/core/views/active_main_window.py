@@ -11,20 +11,23 @@ class Active_view(TemplateView):
     template_name = 'active_main.html'
 
     def dispatch(self, request, *args, **kwargs):
-        # while(True):
-        #     if Dest.objects.count() == 0:
-        #         return redirect(reverse('start'))
-        #     else:
+        #while(True):
+        #    if Dest.objects.count() == 0:
+         #       return redirect(reverse('start'))
+         #   else:
         self.dest0 = Dest.objects.order_by("?").first()
                 # now = datetime.datetime.now()
-                # dest_time = (self.dest0.date).replace(tzinfo=None)
-                # if (now - dest_time).seconds > 5*60:
+                # if (now - self.dest0.date).time().minute < 3:
                 #     Dest.objects.filter(name=self.dest0.name).delete()
                 # else:
                 #     break
 
-        self.recs = [rec for rec in Facts.objects.all() if rec.dest_name == self.dest0]  # self.dest.fact_set.all()
+        self.recs = self.dest0.facts_set.all()
         return super().dispatch(request, *args, **kwargs)
+
+    def get_recs(self):
+        return self.recs
+        # return self.recs [rec for rec in Facts.objects.all()..prefetch_related('many_set')]
 
     def get_url(self):
         place = self.dest0.name
